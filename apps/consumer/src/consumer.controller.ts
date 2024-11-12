@@ -1,11 +1,11 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 
-import { AppService } from './app.service';
+import { ConsumerService } from './consumer.service';
 
 @Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export class ConsumerController {
+  constructor(private readonly appService: ConsumerService) {}
 
   @EventPattern('storage-ec')
   public async getStorage(@Payload() message) {
