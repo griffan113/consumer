@@ -1,0 +1,3 @@
+# Remove Storage Item
+
+POST http://localhost:3001

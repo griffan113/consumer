@@ -8,13 +8,21 @@ async function bootstrap() {
     ConsumerModule,
     // transport layer
     {
-      transport: Transport.KAFKA,
+      // transport: Transport.KAFKA,
+      // options: {
+      //   client: {
+      //     brokers: ['localhost:9093'],
+      //   },
+      //   consumer: {
+      //     groupId: 'ec-consumer',
+      //   },
+      // },
+      transport: Transport.RMQ,
       options: {
-        client: {
-          brokers: ['localhost:9093'],
-        },
-        consumer: {
-          groupId: 'ec-consumer',
+        urls: ['amqp://localhost:5672'],
+        queue: 'storage-sc',
+        queueOptions: {
+          durable: false,
         },
       },
     },
